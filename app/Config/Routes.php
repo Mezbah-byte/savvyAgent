@@ -11,3 +11,4 @@ $routes->post('/login', 'Auth::login');
 $routes->get('/logout', 'Auth::logout');
 
 $routes->get('/dashboard', 'Home::home');
+$routes->get('/products', 'Product::index');

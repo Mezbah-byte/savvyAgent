@@ -1,10 +1,13 @@
 <?php
 
 namespace App\Controllers;
+
+use App\Models\ProductModel;
 use App\Models\Basic\BasicModel;
 
-class Home extends BaseController
+class Product extends BaseController
 {
+
     protected $userUnId;
     protected $isLoggedIn;
 
@@ -27,6 +30,7 @@ class Home extends BaseController
         return true;
     }
 
+
     function globalData() {
         $basicModel = new BasicModel();
 
@@ -35,37 +39,29 @@ class Home extends BaseController
 
         return $data;
     }
- 
+
+
+
+
     public function index()
     {
-        if (!$this->checkLogin()) {
-            return redirect()->to(base_url());
-        }
-        return $this->home();
-    }
 
-    public function home()
-    {
         if (!$this->checkLogin()) {
             return redirect()->to(base_url());
         }
 
-        $data = $this->globalData();
+        $productModel = new ProductModel();
+        $basicModel = new BasicModel();
 
-        return view('dashboard/home', $data);
+        // Fetch all products
+        $data['products'] = $productModel->getActiveProducts();
+        $data['agentData'] = $basicModel->agentDetails($this->userUnId);
 
-        // echo "Logged in: " . ($this->isLoggedIn ? 'Yes' : 'No') . "<br>";
-        // echo "Logged in user un_id: " . $this->userUnId;
-    }
+        // echo json_encode($data);
 
-    public function productsList()
-    {
-        if (!$this->checkLogin()) {
-            return redirect()->to(base_url());
-        }
-
-        echo "This is another method. User un_id: " . $this->userUnId;
+        return view('dashboard/product_list', $data);
     }
 
 
+    
 }
