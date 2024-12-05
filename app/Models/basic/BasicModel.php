@@ -20,4 +20,12 @@ class BasicModel extends Model
             return false;
         }
     }
+
+    public function getUserDetails($unId)
+    {
+        $db = \Config\Database::connect();
+        $builder = $db->table('customers');
+        $builder->where('un_id',$unId);
+        return $builder->get()->getRowArray();
+    }
 }

@@ -66,6 +66,42 @@
         <div data-i18n="Products">Products</div>
       </a>
     </li>
+
+
+    <li class="menu-item">
+      <a href="<?php echo base_url('courses')?>" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <div data-i18n="Courses">Courses</div>
+      </a>
+    </li>
+
+
+    <li class="menu-item">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons bx bx-layout"></i>
+        <div data-i18n="Orders">Orders</div>
+      </a>
+
+      <ul class="menu-sub">
+
+        <li class="menu-item">
+          <a href="<?php echo base_url('orderList/1')?>" class="menu-link">
+            <div data-i18n="Payment Pending Orders">Payment Pending Orders</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="<?php echo base_url('orderList/1')?>" class="menu-link">
+            <div data-i18n="Payment Successfull Orders">Payment Successfull Orders</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="<?php echo base_url('orderList/1')?>" class="menu-link">
+            <div data-i18n="Payment Canceled Orders">Payment Canceled Orders</div>
+          </a>
+        </li>
+        
+      </ul>
+    </li>
     
 
     <!-- Layouts -->

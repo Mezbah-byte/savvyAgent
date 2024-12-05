@@ -12,3 +12,7 @@ $routes->get('/logout', 'Auth::logout');
 
 $routes->get('/dashboard', 'Home::home');
 $routes->get('/products', 'Product::index');
+
+
+$routes->get('/courses', 'Course::courseList');
+$routes->get('/orderList/(:any)', 'Course::orderList/$1');
