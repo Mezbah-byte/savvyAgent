@@ -26,6 +26,7 @@ Options -Indexes
 	# Checks if user is attempting to access a valid file (image, css)
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^(.*)$ index.php/$1 [L]
 	RewriteRule ^([\s\S]*)$ index.php/$1 [L,NC,QSA]
 
 	# Ensure Authorization header is passed along

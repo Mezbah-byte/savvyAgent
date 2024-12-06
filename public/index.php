@@ -53,4 +53,10 @@ $paths = new Config\Paths();
 // LOAD THE FRAMEWORK BOOTSTRAP FILE
 require $paths->systemDirectory . '/Boot.php';
 
+// Path to the application directory
+$pathsPath = realpath(FCPATH . '../app/Config/Paths.php');
+
+// Path to the system directory
+$systemPath = realpath(FCPATH . '../system');
+
 exit(CodeIgniter\Boot::bootWeb($paths));
